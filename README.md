@@ -38,9 +38,10 @@ ou seja, conforme o cliente for comprando, o site vai mostrando quantos restam..
 
 ## Processamento assincrono e não bloqueante
 
-O [endpoint que busca todos os eventos](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/api/EventoController.java) utiliza Event Streaming com Server-Sent Events, na imagem
-abaixo podemos ver que o Postman abre uma conexão, vai recebendo os dados conforme vão chegando
-em um fluxo contínuo e fecha a conexão quando a busca finaliza
+O [endpoint que busca todos os eventos]() utiliza Event Streaming com Server-Sent Events, que 
+faz uma [comunicação unilateral em tempo real](https://www.linkedin.com/feed/update/urn:li:ugcPost:7288700306794684417/?commentUrn=urn%3Ali%3Acomment%3A%28ugcPost%3A7288700306794684417%2C7297693732919734272%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287297693732919734272%2Curn%3Ali%3AugcPost%3A7288700306794684417%29), na imagem abaixo podemos ver que o Postman 
+abre uma conexão, vai recebendo os dados conforme vão chegando em um fluxo contínuo e fecha a 
+conexão quando a busca finaliza
 
 ![img](./assets/Captura%20de%20Tela%202025-02-17%20às%2017.20.07.png)
 ![img](./assets/Captura%20de%20Tela%202025-02-17%20às%2017.20.34.png)
