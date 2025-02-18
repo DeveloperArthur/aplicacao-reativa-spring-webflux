@@ -20,17 +20,17 @@ por mudanças de posição em tempo real, não só com broker de eventos, també
 processamento em tempo real com Server-Sent Events
 
 Na nossa aplicação, nós utilizamos Server-Sent Events para fazer o processamento em tempo real,
-o [endpoint que lista os eventos por categoria]() por exemplo, é uma request que se mantem aberta, 
+o [endpoint que lista os eventos por categoria](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/api/EventoController.java) por exemplo, é uma request que se mantem aberta, 
 e ao ser cadastrado um novo evento para aquela categoria, o cliente que enviou a request, e 
 está com ela aberta, recebe o novo evento cadastrado também
 
 ### Contagem de ingressos em tempo real
 
-A classe [Ingresso.java]() tem a informação da quantidade de ingressos disponíveis, e a classe
-[Venda.java]() tem as informações ingressoId e total de ingressos que serão comprados
+A classe [Ingresso.java](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/domain/Ingresso.java) tem a informação da quantidade de ingressos disponíveis, e a classe
+[Venda.java](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/domain/Venda.java) tem as informações ingressoId e total de ingressos que serão comprados
 
-O [endpoint que lista todos os ingressos]() vai se manter aberta, mostrando a quantidade de ingressos
-disponíveis, o [endpoint de compra]() vai realizar o checkout recebendo id do ingresso, ele subtrai
+O [endpoint que lista todos os ingressos](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/api/IngressoController.java) vai se manter aberta, mostrando a quantidade de ingressos
+disponíveis, o [endpoint de compra](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/api/IngressoController.java) vai realizar o checkout recebendo id do ingresso, ele subtrai
 a quantidade de ingressos pela quantidade que será comprada, e atualiza a tabela ingresso
 
 Por causa do Sink, o endpoint de ingressos vai atualizar a quantidade de ingresos disponíveis
@@ -38,7 +38,7 @@ ou seja, conforme o cliente for comprando, o site vai mostrando quantos restam..
 
 ## Processamento assincrono e não bloqueante
 
-O [endpoint que busca todos os eventos]() utiliza Event Streaming com Server-Sent Events, na imagem
+O [endpoint que busca todos os eventos](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/api/EventoController.java) utiliza Event Streaming com Server-Sent Events, na imagem
 abaixo podemos ver que o Postman abre uma conexão, vai recebendo os dados conforme vão chegando
 em um fluxo contínuo e fecha a conexão quando a busca finaliza
 
