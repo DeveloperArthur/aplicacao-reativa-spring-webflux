@@ -48,7 +48,20 @@ conexão quando a busca finaliza
 
 ### Consumindo API e gravando registro no banco de forma não bloqueante
 
-...
+No paradigma reativo, a ideia é utilizar um modelo de programação assíncrono e não bloqueante, onde as operações de I/O (como chamadas de rede e acesso a banco de dados) não bloqueiam a execução das threads. Em vez disso, elas utilizam callbacks ou promessas para lidar com a conclusão dessas operações.
+
+1. Escritas no Banco de Dados:
+
+    Em um ambiente reativo, as operações de escrita no banco de dados são feitas de forma assíncrona. Isso significa que, quando você faz uma operação de escrita, ela é iniciada e, em vez de bloquear a thread até que a operação termine, o controle é devolvido imediatamente. Quando a operação de escrita é concluída, um callback é acionado para lidar com o resultado.
+    O uso de drivers reativos para bancos de dados, como o R2DBC, permite que essas operações sejam realizadas de forma não bloqueante.
+
+2. Requisições para APIs Externas:
+
+    Similarmente, quando uma requisição é feita a uma API externa, a chamada é feita de forma assíncrona. O controle é devolvido imediatamente após a requisição ser enviada, e a resposta é tratada por meio de callbacks ou fluxos reativos quando chega.
+    WebClient, por exemplo, é uma ferramenta em Spring WebFlux que facilita essas chamadas de forma não bloqueante.
+    Mesmo que você esteja esperando a resposta para continuar o processamento (o que parece sincrônico), a diferença está em como os recursos do sistema são gerenciados. Em um modelo não bloqueante, o sistema pode continuar a processar outras tarefas enquanto aguarda a conclusão das operações de I/O, tornando-o mais eficiente em termos de uso de recursos.
+
+Essas chamadas assíncronas são incríveis, principalmente porque a thread não fica bloqueada em uma conexão de rede, ela entra em um estado de espera sem consumir recursos, aguardando o callback.
 
 Fonte: https://cursos.alura.com.br/forum/topico-duvida-como-as-escritas-no-banco-de-dados-e-a-integracao-da-api-sao-feitas-de-forma-nao-bloqueante-484190
 
