@@ -1,9 +1,9 @@
 # Aplicação Reativa com Spring WebFlux
 
-Curso excelente, construímos uma aplicação reativa com Spring WebFlux
-que realiza operações assíncronas e não bloqueantes, processamento em tempo real
-e propagação de mudanças com Event Streaming, Server-Sent Events, utilizando Netty, 
-R2DBC, Flyway e Sink
+Aplicação reativa com Spring WebFlux que realiza operações assíncronas e não bloqueantes, processamento em tempo real
+e propagação de mudanças com Event Streaming, Server-Sent Events, utilizando Netty, R2DBC, Flyway e Sink
+
+A aplicação reativa tem como característica não deixar os clients pendurados, todos os I/O são não bloqueantes, ela tem operações assíncronas e processamento em tempo real com propagação de mudanças
 
 ## Stack:
 - Netty como servidor de aplicação
@@ -72,5 +72,14 @@ processo assincrono com programação não bloqueante, enquanto uma request é f
 sendo feita também, mesmo sem a resposta da primeira, [exemplo prático: calcula_folha_pagamento.go](https://github.com/DeveloperArthur/golang-first-api-rest/blob/main/service/calcula_folha_pagamento.go)
 - [Melhorando uma aplicação com Single-Thread Server](https://github.com/DeveloperArthur/arquitetura-escalabilidade-com-php?tab=readme-ov-file#melhorando-disponibilidade-da-aplica%C3%A7%C3%A3o)
 
+## Por que não usamos sempre a API reativa?
+Nem sempre a API reativa conveniente. Ela é ideal quando precisamos trabalhar com alta concorrência, escalabilidade, baixa latência, performance, fluxo assíncrono, notificações em tempo real, controle de fluxo, e assim por diante.
+
+Por outro lado, para aplicações mais simples, de baixo tráfego, que exigem compatibilidade ou simplicidade para debug, a API Servlet pode ser mais adequada.
+
+Cada caso é único. Como pessoas desenvolvedoras, precisamos analisar o tipo de aplicação para decidir o que atende melhor. No caso do CodeChella, precisávamos de controle em tempo real para vendas de ingressos, então optamos pela API reativa.
+
 ## Outros conteúdos sobre programação reativa
 - https://github.com/DeveloperArthur/algoritmos-guias-anotacoes-uteis/blob/main/quarkus%20e%20spring%20web%20flux/quarkus%20e%20spring%20web%20flux.md
+
+
