@@ -14,10 +14,9 @@ mas no reativo não, tem q ser criado através de scripts com Flyway
 
 ## Processamento em tempo real com propagação de mudanças
 
-Quando um sistema está inscrito em uma fila e outro sistema envia um evento, e o sistema que está 
-inscrito consome o evento, isso é processamento em tempo real, o sistema está sendo notificado 
-por mudanças de posição em tempo real, não só com broker de eventos, também é possível fazer 
-processamento em tempo real com Server-Sent Events
+A partir do momento que um microservice de pedido publica um evento de `pedido-criado` e os microservices de estoque, pagamento, qualificacao e fulfilment consomem esse evento, eles estão sendo notificados em tempo real, isso é processamento em tempo real, o sistema está sendo notificado por mudanças de posição em tempo real
+
+Não só com broker de eventos, utilizando o pattern Publishe/Subscribe, mas também é possível fazer processamento em tempo real com Server-Sent Events ou WebSockets, e principalmente com Arquitetura de Streaming de Eventos, quando queremos, por exemplo, um projeto de rastreamento de frota de caminhões em tempo real, onde 5 mil caminhões enviam coordenadas geográficas a cada 5 segundos e a transportadora pode consultar em qualquer momento a rota percorrida de qualquer caminhão
 
 Na nossa aplicação, nós utilizamos Server-Sent Events para fazer o processamento em tempo real,
 o [endpoint que lista os eventos por categoria](https://github.com/DeveloperArthur/aplicacao-reativa-spring-webflux/blob/main/src/main/java/br/com/alura/codechella/api/EventoController.java) por exemplo, é uma request que se mantem aberta, 
